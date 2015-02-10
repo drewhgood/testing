@@ -10,6 +10,13 @@ rescue LoadError
   # ignore
 end
 
+RSpec.configure do |config|
+  config.color = true
+  config.formatter = :documentation
+end
+
 safely_require '../lib/unit'
 safely_require '../lib/footman'
 safely_require '../lib/barracks'
+safely_require '../lib/unit'
+safely_require '../lib/peasant'
