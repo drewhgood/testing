@@ -19,6 +19,11 @@ describe Barracks do
     @footman.attack!(@barracks)
     expect(@barracks.health_points).to eq(495)
   end 
+
+  it "has 500 wood when created" do
+    expect(@barracks.wood).to eq(500)
+
+  end 
   
 end
 

@@ -1,11 +1,12 @@
 class Barracks
 
-  attr_accessor :gold, :food, :health_points
+  attr_accessor :gold, :food, :health_points, :wood
 
   def initialize
     @gold = 1000
     @food = 80
     @health_points = 500
+    @wood = 500
   end
 
 
