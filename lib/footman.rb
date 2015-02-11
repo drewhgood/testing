@@ -14,18 +14,22 @@ end
 
 
 
-def damage(amount)
-
-  @health_points -= amount
-
-end
-
-
 def attack!(target)
 
-  target.damage(attack_power)
+  unless target == Barracks
+    target.damage(attack_power * 0.5)
+
+  else
+  
+    target.damage(attack_power)
+
+  end
+
+
 
 end
+
+
 
 
 
