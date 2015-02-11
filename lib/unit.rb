@@ -11,22 +11,22 @@ class Unit
   end
 
 
-def attack!(target)
+  def attack!(target)
+    unless dead? || target.dead?
+      target.damage(attack_power)
+    end
 
-  target.damage(attack_power)
-
-end
+  end
 
 
-def damage(amount)
+  def damage(amount)
+    @health_points -= amount
+  end
 
-  @health_points -= amount
 
-end
-
-def dead?
-  health_points <= 0 
-end
+  def dead?
+    health_points <= 0 
+  end
 
 
 end

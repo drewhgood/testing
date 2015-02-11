@@ -3,21 +3,6 @@
 # Units that can fight, such as the Footman, have both health points to indicate their health and attack power to indicate how much damage they deal to other units
 # As such, they must start off with a certain amount of each
 
-# describe Footman do
-
-#   before :each do
-#     @footman = Footman.new
-#   end
-
-#   it "has and knows its HP (health points)" do
-#     expect(@footman.health_points).to eq(60)
-#   end
-
-#   it "has and knows its AP (attack power)" do
-#     expect(@footman.attack_power).to eq(10)
-#   end
-
-# end
 
 describe Barracks do
 
@@ -49,6 +34,24 @@ describe Unit do
     @enemy = Footman.new
     @enemy.attack!(@unit)
   end
+
+  it "dead unit cannot attack alive unit" do
+     @unit = Unit.new(100,100)
+     @dead_unit = Unit.new(100,100)
+     @dead_unit.should_receive(:dead?).and_return(true)
+     @dead_unit.attack!(@unit)
+     expect(@unit.health_points).to eq(100)
+  end
+
+  it "alive unit cannot attack dead unit" do
+     @unit = Unit.new(100,100)
+     @dead_unit = Unit.new(100,100)
+     @dead_unit.should_receive(:dead?).and_return(true)
+     @unit.attack!(@dead_unit)
+     expect(@dead_unit.health_points).to eq(100)
+  end
+
+
 
 end
 
