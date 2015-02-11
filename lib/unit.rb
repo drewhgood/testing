@@ -24,7 +24,9 @@ def damage(amount)
 
 end
 
-
+def dead?
+  health_points <= 0 
+end
 
 
 end

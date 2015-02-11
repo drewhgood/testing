@@ -37,6 +37,21 @@ describe Barracks do
   
 end
 
+describe Unit do
+
+  it "is dead if it has no HP" do
+     @unit = Unit.new(0,0)
+     expect(@unit.dead?).to be_truthy
+  end
+
+  it "is dead if attacked and HP goes to 0" do
+    @unit = Unit.new(4,0)
+    @enemy = Footman.new
+    @enemy.attack!(@unit)
+  end
+
+end
+
 
 
 
